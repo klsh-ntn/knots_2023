@@ -39,7 +39,7 @@
 \usepackage{qcircuit} % для рисовки квантовых диаграмм
 \usepackage{physics} % бракеты
 
-% \usepackage{answers} % разделение условий и ответов в упражнениях
+\usepackage{answers} % разделение условий и ответов в упражнениях
 
 
 
@@ -95,6 +95,7 @@
 \DeclareMathOperator{\Corr}{Corr}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\lk}{lk}
 \newcommand \hVar{\widehat{\Var}}
 \newcommand \hCorr{\widehat{\Corr}}
 \newcommand \hCov{\widehat{\Cov}}
@@ -121,35 +122,35 @@ style=alphabetic]{biblatex}
 
 
 
-% \Newassociation{sol}{solution}{solution_file}
-% % sol --- имя окружения внутри задач
-% % solution --- имя окружения внутри solution_file
-% % solution_file --- имя файла в который будет идти запись решений
-% % можно изменить далее по ходу
-% \Opensolutionfile{solution_file}[all_solutions]
-% % в квадратных скобках фактическое имя файла
+\Newassociation{sol}{solution}{solution_file}
+% sol --- имя окружения внутри задач
+% solution --- имя окружения внутри solution_file
+% solution_file --- имя файла в который будет идти запись решений
+% можно изменить далее по ходу
+\Opensolutionfile{solution_file}[all_solutions]
+% в квадратных скобках фактическое имя файла
 
-% % магия для автоматических гиперссылок задача-решение
-% \newlist{myenum}{enumerate}{3}
-% % \newcounter{problem}[chapter] % нумерация задач внутри глав
-% \newcounter{problem}[section]
+% магия для автоматических гиперссылок задача-решение
+\newlist{myenum}{enumerate}{3}
+% \newcounter{problem}[chapter] % нумерация задач внутри глав
+\newcounter{problem}[section]
 
-% \newenvironment{problem}%
-% {%
-% \refstepcounter{problem}%
-% %  hyperlink to solution
-%      \hypertarget{problem:{\thesection.\theproblem}}{} % нумерация внутри глав
-%      % \hypertarget{problem:{\theproblem}}{}
-%      \Writetofile{solution_file}{\protect\hypertarget{soln:\thesection.\theproblem}{}}
-%      %\Writetofile{solution_file}{\protect\hypertarget{soln:\theproblem}{}}
-%      \begin{myenum}[label=\bfseries\protect\hyperlink{soln:\thesection.\theproblem}{\thesection.\theproblem},ref=\thesection.\theproblem]
-%      % \begin{myenum}[label=\bfseries\protect\hyperlink{soln:\theproblem}{\theproblem},ref=\theproblem]
-%      \item%
-%     }%
-%     {%
-%     \end{myenum}}
-% % для гиперссылок обратно надо переопределять окружение
-% % это происходит непосредственно перед подключением файла с решениями
+\newenvironment{problem}%
+{%
+\refstepcounter{problem}%
+%  hyperlink to solution
+     \hypertarget{problem:{\thesection.\theproblem}}{} % нумерация внутри глав
+     % \hypertarget{problem:{\theproblem}}{}
+     \Writetofile{solution_file}{\protect\hypertarget{soln:\thesection.\theproblem}{}}
+     %\Writetofile{solution_file}{\protect\hypertarget{soln:\theproblem}{}}
+     \begin{myenum}[label=\bfseries\protect\hyperlink{soln:\thesection.\theproblem}{\thesection.\theproblem},ref=\thesection.\theproblem]
+     % \begin{myenum}[label=\bfseries\protect\hyperlink{soln:\theproblem}{\theproblem},ref=\theproblem]
+     \item%
+    }%
+    {%
+    \end{myenum}}
+% для гиперссылок обратно надо переопределять окружение
+% это происходит непосредственно перед подключением файла с решениями
 
 
 
@@ -227,8 +228,87 @@ style=alphabetic]{biblatex}
 Воровской узел. 
 
 
+\newcommand{\dayfour}{
+  \begin{enumerate}
+    \item Какой узел $O$ при сложении с любым другим узлом $K$ не изменяет его, $K \# O = O \# K = K$? 
+    \item Правда ли, что для узлов $K_1 \# K_2 = K_2 \# K_1$?
+    
+    \item Зацепи $n$ тривиальных узлов самым простым образом так, 
+    чтобы при разрезании одного любого кольца всё зацепления распадалось на отдельные кусочки:
+
+    \begin{minipage}{\linewidth}
+      \begin{multicols}{3}
+        \begin{enumerate}    
+        \item Зацепление Хопфа, $n=2$;
+        \item Зацепление Борромео, $n=3$;
+        \item $n=4$;
+      \end{enumerate}
+    \end{multicols}
+    \end{minipage}
+
+    \item Используя движения Рейдемейстера перевиди одну картинку в другую
+    
+    \begin{minipage}{\linewidth}
+      \begin{multicols}{2}
+        \begin{enumerate}    
+        \item \includegraphics[scale=0.8]{pictures/trivial2trivial.png}
+        \item \includegraphics[scale=0.6]{pictures/eight2eight.png}
+      \end{enumerate}
+    \end{multicols}
+    \end{minipage}
+    
+    
+    \item Зарисуй движение Рейдемейстера $\Omega_1$ на диаграмме Гаусса и 
+    запиши его в коде узла Гаусса. 
+
+    Рассмотри все варианты.
+    \item Как может выглядеть движение Рейдемейстера $\Omega_2$ на диаграмме Гаусса и 
+    в коде узла Гаусса? 
+    \item Как может выглядеть движение Рейдемейстера $\Omega_3$ на диаграмме Гаусса и 
+    в коде узла Гаусса?
+  \end{enumerate}
+}
+
+\newpage
+\dayfour
+\vfill
+\dayfour
+\newpage
 
 
+
+\newcommand{\daysix}{
+Для зацепления из двух компонент \textit{коэффициент зацепления} $\lk = (N_R - N_L) /2$, где $N_R$ — число мостов, 
+где первая компонента проходит над второй и под мостом поток приходит с правой стороны, 
+а $N_L$ — число мостов, где первая компонента проходит над второй и под мостом поток приходит с левой стороны.
+
+Плоская диаграмма узла называется \textit{раскрашиваемой в три цвета}, если каждый отрезок узла от прохода под мостом до прохода под мостом 
+можно раскрасить в один из трёх цветов так, чтобы в каждом пересечении встречались три цвета или один цвет.
+
+\begin{enumerate}
+  \item Какие из диаграмм можно раскрасить в три цвета по правилам?
+  \item Для каждого двухкомпонентного зацепления посчитай коэффициент зацепления.
+  \item Что происходит с коэффициентом зацепления, если первую компоненту считать второй, а вторую — первой?
+  \item Что происходит с коэффициентом зацепления, если поменять направление обхода первой компоненты?
+  \item Докажи, что движения Рейдемейстера сохраняют раскрашиваемость в три цвета.
+  \item Докажи, что движения Рейдемейстера сохраняют коэффициент зацепления.
+\end{enumerate}
+
+}
+
+\newpage
+\daysix
+\vfill
+\daysix
+\newpage
+
+\includegraphics[scale=0.7]{pictures/two-lines.png}
+
+\includegraphics[scale=0.8]{pictures/small-knots.png}
+
+\includegraphics[scale=0.8]{pictures/linking-number-1.png}
+\includegraphics[scale=0.8]{pictures/linking-number-2.png}
+\includegraphics[scale=0.8]{pictures/linking-number-3.png}
 \newpage
 
 \section{Лог. КЛШ-2023}
